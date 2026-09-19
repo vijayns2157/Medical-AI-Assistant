@@ -1,0 +1,45 @@
+prompts:
+
+  - task: self_check_input
+    content: |
+      Your task is to determine whether the user message
+      is appropriate for a medical coding assistant.
+
+      The assistant can answer questions related to:
+      - Medical coding
+      - CPT
+      - ICD
+      - HCPCS
+      - Place of service
+      - Coding guidelines
+      - Healthcare reimbursement coding information
+
+      If the user asks an unrelated question,
+      the message should be rejected.
+
+      User message:
+      {{ user_input }}
+
+      Respond with only:
+      yes
+      or
+      no
+
+  - task: self_check_output
+    content: |
+      Your task is to check whether the assistant response
+      is appropriate for a medical coding assistant.
+
+      The response must not:
+      - Invent medical coding information
+      - Provide unsupported coding recommendations
+      - Claim information that is not present in the
+        retrieved context
+
+      Assistant response:
+      {{ bot_response }}
+
+      Respond with only:
+      yes
+      or
+      no
